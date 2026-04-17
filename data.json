@@ -1,6 +1,6 @@
 {
   "date": "2026년 04월 17일 (금)",
-  "generated_at": "18:53",
+  "generated_at": "19:01",
   "summary": {
     "total_amount": 13485248320508,
     "total_str": "13.5조",
@@ -167,7 +167,7 @@
       "amount": 3913720108000,
       "amount_str": "3.9조",
       "market": "KOSPI",
-      "industry": "전기,전자"
+      "industry": "기타"
     },
     {
       "ticker": "047040",
@@ -423,7 +423,7 @@
       "amount": 32561999840,
       "amount_str": "325억",
       "market": "KOSPI",
-      "industry": "전기,전자"
+      "industry": "기타"
     },
     {
       "ticker": "003280",
@@ -463,7 +463,7 @@
       "amount": 16786188379,
       "amount_str": "167억",
       "market": "KOSDAQ",
-      "industry": "기타"
+      "industry": "자연과학 및 공학 연구개발업"
     },
     {
       "ticker": "142280",
@@ -483,7 +483,7 @@
       "amount": 14990025536,
       "amount_str": "149억",
       "market": "KOSPI",
-      "industry": "기타"
+      "industry": "종이,목재"
     },
     {
       "ticker": "046310",
@@ -543,7 +543,7 @@
       "amount": 10178604788,
       "amount_str": "101억",
       "market": "KOSDAQ",
-      "industry": "소프트웨어 개발 및 공급업"
+      "industry": "기타"
     },
     {
       "ticker": "073010",
@@ -634,7 +634,7 @@
       "amount": 1417089145,
       "amount_str": "14억",
       "market": "KOSDAQ",
-      "industry": "제약"
+      "industry": "기타"
     },
     {
       "ticker": "065950",
@@ -696,7 +696,7 @@
       "amount": 54715905,
       "amount_str": "0억",
       "market": "KOSDAQ",
-      "industry": "금융지원 서비스업"
+      "industry": "기타"
     },
     {
       "ticker": "486630",
@@ -737,7 +737,7 @@
       "amount": 14637215,
       "amount_str": "0억",
       "market": "KOSDAQ",
-      "industry": "기타"
+      "industry": "금융지원 서비스업"
     },
     {
       "ticker": "475250",
