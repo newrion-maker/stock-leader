@@ -102,17 +102,25 @@ def get_naver_themes():
 def get_top60(today):
     print("[2/4] 거래대금 상위 60위 수집 중...")
     df = stock.get_market_ohlcv_by_ticker(today, market="ALL")
-    df = df[df["거래대금"] > 0].copy()
-    df = df.sort_values("거래대금", ascending=False).head(TOP_N)
+
+    # pykrx 버전에 따라 컬럼명이 다름 (한글 or 영어)
+    cols = df.columns.tolist()
+    if "거래대금" in cols:
+        amount_col, close_col, open_col = "거래대금", "종가", "시가"
+    else:
+        amount_col, close_col, open_col = "TradingValue", "Close", "Open"
+
+    df = df[df[amount_col] > 0].copy()
+    df = df.sort_values(amount_col, ascending=False).head(TOP_N)
 
     result = []
     for ticker, row in df.iterrows():
         try:
             name   = stock.get_market_ticker_name(ticker)
-            close  = float(row["종가"])
-            open_  = float(row["시가"])
+            close  = float(row[close_col])
+            open_  = float(row[open_col])
             chg    = round((close - open_) / open_ * 100, 2) if open_ > 0 else 0
-            amount = int(row["거래대금"])
+            amount = int(row[amount_col])
             result.append({
                 "ticker": ticker,
                 "name":   name,
