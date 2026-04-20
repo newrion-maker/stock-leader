@@ -12,6 +12,29 @@ BASE_URL = "https://openapi.koreainvestment.com:9443"
 TOP_N = 60
 MIN_THEME_CNT = 3
 
+THEMES = {
+    "반도체": ["005930","000660","042700","403870","058470","039030","240810","357780","005290","067310"],
+    "방산/항공": ["012450","079550","064350","047810","272210","010820","065450","105840"],
+    "조선": ["009540","010140","042660","329180","010620","082740","077970","071970"],
+    "2차전지": ["373220","006400","096770","247540","003670","066970","005070","278280","336570"],
+    "바이오/제약": ["207940","068270","196170","128940","000100","028300","237690","091990","145020","041830"],
+    "자동차": ["005380","000270","012330","204320","011210","018880","015750"],
+    "게임": ["259960","036570","251270","293490","263750","041140","112040","069080"],
+    "엔터": ["352820","041510","035900","122870","037270","020120"],
+    "인터넷/플랫폼": ["035720","035420","377300","323410","067160"],
+    "은행/금융": ["105560","055550","086790","316140","024110","138930","175330"],
+    "보험": ["032830","000810","005830","000060","088350","001450"],
+    "철강": ["005490","004020","010130","000670","016380"],
+    "화학": ["051910","011170","011780","298050","009830"],
+    "정유": ["096770","010950","078930"],
+    "건설": ["028260","000720","006360","375500","294870","047040"],
+    "원전": ["034020","130660","083650","051600","298040"],
+    "로봇": ["277810","454910","058610"],
+    "통신": ["017670","030200","032640"],
+    "항공/여행": ["003490","020560","089590","039130","272450"],
+    "해운": ["011200","028670","005880"],
+}
+
 
 def get_today():
     today = datetime.today()
@@ -30,7 +53,7 @@ def fmt_amount(val):
 
 
 def get_token():
-    print("[0/4] 토큰 발급 중...")
+    print("[0/3] 토큰 발급 중...")
     res = requests.post(
         f"{BASE_URL}/oauth2/tokenP",
         json={"grant_type": "client_credentials", "appkey": APP_KEY, "appsecret": APP_SECRET},
@@ -44,7 +67,7 @@ def get_token():
 
 
 def get_top60(token):
-    print("[1/4] 거래대금 TOP60 수집 중...")
+    print("[1/3] 거래대금 TOP60 수집 중...")
     results = []
     headers = {
         "authorization": f"Bearer {token}",
@@ -98,81 +121,38 @@ def get_top60(token):
     return results
 
 
-def get_industry(token, ticker):
-    headers = {
-        "authorization": f"Bearer {token}",
-        "appkey": APP_KEY,
-        "appsecret": APP_SECRET,
-        "tr_id": "CTPF1002R",
-        "Content-Type": "application/json; charset=utf-8"
-    }
-    try:
-        res = requests.get(
-            f"{BASE_URL}/uapi/domestic-stock/v1/quotations/search-stock-info",
-            headers=headers,
-            params={"PRDT_TYPE_CD": "300", "PDNO": ticker},
-            timeout=10
-        )
-        out = res.json().get("output", {})
-        for key in ["idx_bztp_scls_cd_name", "idx_bztp_mcls_cd_name", "std_idst_clsf_cd_name"]:
-            v = out.get(key, "").strip()
-            if v:
-                return v
-    except:
-        pass
-    return "기타"
-
-
-def classify(token, top60):
-    print("[2/4] 업종 분류 중...")
-    print(f"  {len(top60)}개 종목 조회 (약 2~3분)")
-    for i, s in enumerate(top60):
-        s["industry"] = get_industry(token, s["ticker"])
-        if (i + 1) % 10 == 0:
-            print(f"  진행: {i + 1}/{len(top60)}")
-        time.sleep(0.2)
-    print("  완료!")
-    return top60
-
-
 def analyze(top60):
-    print("[3/4] 주도 테마 분석 중...")
-    ind_map = {}
-    for s in top60:
-        ind = s.get("industry", "기타")
-        if ind == "기타":
+    print("[2/3] 주도 업종 분석 중...")
+    top60_map = {s["ticker"]: s for s in top60}
+    theme_results = []
+    for theme_name, tickers in THEMES.items():
+        matched = [top60_map[t] for t in tickers
+                   if t in top60_map and top60_map[t]["change"] > 0]
+        if len(matched) < MIN_THEME_CNT:
             continue
-        if ind not in ind_map:
-            ind_map[ind] = []
-        ind_map[ind].append(s)
-    results = []
-    for ind, stocks in ind_map.items():
-        rising = [s for s in stocks if s["change"] > 0]
-        if len(rising) < MIN_THEME_CNT:
-            continue
-        total = sum(s["amount"] for s in rising)
-        for s in rising:
+        total = sum(s["amount"] for s in matched)
+        for s in matched:
             s["score"] = s["change"] * (s["amount"] / 1_000_000_000)
-        champ = max(rising, key=lambda x: x["score"])
+        champ = max(matched, key=lambda x: x["score"])
         others = sorted(
-            [s for s in rising if s["ticker"] != champ["ticker"]],
+            [s for s in matched if s["ticker"] != champ["ticker"]],
             key=lambda x: -x["amount"]
         )
-        results.append({
-            "theme": ind,
+        theme_results.append({
+            "theme": theme_name,
             "total_amount": total,
             "total_str": fmt_amount(total),
-            "count": len(rising),
+            "count": len(matched),
             "champion": champ,
             "stocks": others
         })
-    results = sorted(results, key=lambda x: -x["total_amount"])
-    print(f"  주도 테마 {len(results)}개 발견")
-    return results
+    theme_results = sorted(theme_results, key=lambda x: -x["total_amount"])
+    print(f"  주도 업종 {len(theme_results)}개 발견")
+    return theme_results
 
 
 def save(today, top60, themes):
-    print("[4/4] 저장 중...")
+    print("[3/3] 저장 중...")
     total = sum(s["amount"] for s in top60)
     tamt = sum(t["total_amount"] for t in themes)
     ratio = round(tamt / total * 100, 1) if total else 0
@@ -200,18 +180,17 @@ def save(today, top60, themes):
         json.dump(data, f, ensure_ascii=False, indent=2)
     print(f"\n완료!")
     print(f"  TOP60: {fmt_amount(total)}")
-    print(f"  주도 테마: {fmt_amount(tamt)} ({ratio}%) / {len(themes)}개")
+    print(f"  주도 업종: {fmt_amount(tamt)} ({ratio}%) / {len(themes)}개")
     print(f"\n→ 웹사이트에서 확인하세요!")
 
 
 if __name__ == "__main__":
     print("=" * 50)
-    print("  주도 테마 분석기 (한국투자증권 API)")
+    print("  주도 업종 분석기 (한국투자증권 API)")
     print("=" * 50)
     today = get_today()
     print(f"  기준일: {today}\n")
     token = get_token()
     top60 = get_top60(token)
-    top60 = classify(token, top60)
     themes = analyze(top60)
     save(today, top60, themes)
