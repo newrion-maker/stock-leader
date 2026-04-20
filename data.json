@@ -1,763 +1,558 @@
 {
-  "date": "2026년 04월 17일 (금)",
-  "generated_at": "19:01",
+  "date": "2026년 04월 20일 (월)",
+  "generated_at": "13:55",
   "summary": {
-    "total_amount": 13485248320508,
-    "total_str": "13.5조",
-    "theme_amount": 773182052466,
-    "theme_str": "7,731억",
-    "theme_ratio": 5.7,
-    "non_theme_amount": 12712066268042,
-    "non_theme_str": "12.7조",
-    "theme_count": 3,
+    "total_amount": 7598163534597,
+    "total_str": "7.6조",
+    "theme_amount": 0,
+    "theme_str": "0억",
+    "theme_ratio": 0.0,
+    "non_theme_amount": 7598163534597,
+    "non_theme_str": "7.6조",
+    "theme_count": 0,
     "top60_count": 60
   },
-  "themes": [
-    {
-      "theme": "기계",
-      "total_amount": 679879965549,
-      "total_str": "6,798억",
-      "count": 4,
-      "champion": {
-        "ticker": "010820",
-        "name": "퍼스텍",
-        "close": 13480,
-        "change": 14.92,
-        "amount": 357675557525,
-        "amount_str": "3,576억",
-        "market": "KOSPI",
-        "industry": "기계",
-        "score": 5336.519318273
-      },
-      "stocks": [
-        {
-          "ticker": "077970",
-          "name": "STX엔진",
-          "close": 44000,
-          "change": 29.99,
-          "amount": 151684536000,
-          "amount_str": "1,516억",
-          "market": "KOSPI",
-          "industry": "기계",
-          "score": 4549.01923464
-        },
-        {
-          "ticker": "018880",
-          "name": "한온시스템",
-          "close": 4160,
-          "change": 1.84,
-          "amount": 109439409277,
-          "amount_str": "1,094억",
-          "market": "KOSPI",
-          "industry": "기계",
-          "score": 201.36851306968
-        },
-        {
-          "ticker": "017550",
-          "name": "수산세보틱스",
-          "close": 3280,
-          "change": 8.43,
-          "amount": 61080462747,
-          "amount_str": "610억",
-          "market": "KOSPI",
-          "industry": "기계",
-          "score": 514.9083009572099
-        }
-      ]
-    },
-    {
-      "theme": "금속",
-      "total_amount": 92819580923,
-      "total_str": "928억",
-      "count": 3,
-      "champion": {
-        "ticker": "054540",
-        "name": "삼영엠텍",
-        "close": 12850,
-        "change": 9.92,
-        "amount": 50075430485,
-        "amount_str": "500억",
-        "market": "KOSDAQ",
-        "industry": "금속",
-        "score": 496.7482704112
-      },
-      "stocks": [
-        {
-          "ticker": "039240",
-          "name": "경남스틸",
-          "close": 3015,
-          "change": 3.97,
-          "amount": 39535321205,
-          "amount_str": "395억",
-          "market": "KOSDAQ",
-          "industry": "금속",
-          "score": 156.95522518385002
-        },
-        {
-          "ticker": "033310",
-          "name": "엠투엔",
-          "close": 1932,
-          "change": 5.17,
-          "amount": 3208829233,
-          "amount_str": "32억",
-          "market": "KOSDAQ",
-          "industry": "금속",
-          "score": 16.58964713461
-        }
-      ]
-    },
-    {
-      "theme": "금융지원 서비스업",
-      "total_amount": 482505994,
-      "total_str": "4억",
-      "count": 3,
-      "champion": {
-        "ticker": "0097F0",
-        "name": "미래에셋비전스팩10호",
-        "close": 2010,
-        "change": 0.5,
-        "amount": 278298820,
-        "amount_str": "2억",
-        "market": "KOSDAQ",
-        "industry": "금융지원 서비스업",
-        "score": 0.13914941
-      },
-      "stocks": [
-        {
-          "ticker": "0071M0",
-          "name": "삼성스팩11호",
-          "close": 2040,
-          "change": 0.49,
-          "amount": 149499580,
-          "amount_str": "1억",
-          "market": "KOSDAQ",
-          "industry": "금융지원 서비스업",
-          "score": 0.0732547942
-        },
-        {
-          "ticker": "486630",
-          "name": "KB제30호스팩",
-          "close": 2095,
-          "change": 0.24,
-          "amount": 54707594,
-          "amount_str": "0억",
-          "market": "KOSDAQ",
-          "industry": "금융지원 서비스업",
-          "score": 0.013129822559999999
-        }
-      ]
-    }
-  ],
+  "themes": [],
   "top60": [
-    {
-      "ticker": "000660",
-      "name": "SK하이닉스",
-      "close": 1128000,
-      "change": -2.34,
-      "amount": 4068760085195,
-      "amount_str": "4.1조",
-      "market": "KOSPI",
-      "industry": "전기,전자"
-    },
     {
       "ticker": "005930",
       "name": "삼성전자",
-      "close": 216000,
-      "change": -0.69,
-      "amount": 3913720108000,
-      "amount_str": "3.9조",
-      "market": "KOSPI",
-      "industry": "기타"
+      "close": 216250,
+      "change": 0.12,
+      "amount": 2618032188750,
+      "amount_str": "2.6조",
+      "market": "KOSPI"
     },
     {
-      "ticker": "047040",
-      "name": "대우건설",
-      "close": 28700,
-      "change": 0.35,
-      "amount": 817549142250,
-      "amount_str": "8,175억",
-      "market": "KOSPI",
-      "industry": "건설업"
-    },
-    {
-      "ticker": "017900",
-      "name": "광전자",
-      "close": 13810,
-      "change": 7.05,
-      "amount": 801609547405,
-      "amount_str": "8,016억",
-      "market": "KOSPI",
-      "industry": "기타"
-    },
-    {
-      "ticker": "093370",
-      "name": "후성",
-      "close": 13820,
-      "change": 22.3,
-      "amount": 424659072485,
-      "amount_str": "4,246억",
-      "market": "KOSPI",
-      "industry": "화학"
-    },
-    {
-      "ticker": "034020",
-      "name": "두산에너빌리티",
-      "close": 108500,
-      "change": -2.08,
-      "amount": 390964254050,
-      "amount_str": "3,909억",
-      "market": "KOSPI",
-      "industry": "기계"
+      "ticker": "036930",
+      "name": "주성엔지니어링",
+      "close": 91500,
+      "change": 29.97,
+      "amount": 813359613100,
+      "amount_str": "8,133억",
+      "market": "KOSDAQ"
     },
     {
       "ticker": "001440",
       "name": "대한전선",
-      "close": 39300,
-      "change": -6.65,
-      "amount": 362979197275,
-      "amount_str": "3,629억",
-      "market": "KOSPI",
-      "industry": "전기,전자"
+      "close": 40400,
+      "change": 2.8,
+      "amount": 605285166900,
+      "amount_str": "6,052억",
+      "market": "KOSPI"
+    },
+    {
+      "ticker": "034020",
+      "name": "두산에너빌리티",
+      "close": 111900,
+      "change": 3.13,
+      "amount": 550498249950,
+      "amount_str": "5,504억",
+      "market": "KOSPI"
+    },
+    {
+      "ticker": "047040",
+      "name": "대우건설",
+      "close": 28150,
+      "change": -1.92,
+      "amount": 417810111100,
+      "amount_str": "4,178억",
+      "market": "KOSPI"
+    },
+    {
+      "ticker": "007660",
+      "name": "이수페타시스",
+      "close": 134400,
+      "change": 11.72,
+      "amount": 408796128450,
+      "amount_str": "4,087억",
+      "market": "KOSPI"
     },
     {
       "ticker": "010820",
       "name": "퍼스텍",
-      "close": 13480,
-      "change": 14.92,
-      "amount": 357675557525,
-      "amount_str": "3,576억",
-      "market": "KOSPI",
-      "industry": "기계",
-      "score": 5336.519318273
+      "close": 15890,
+      "change": 17.88,
+      "amount": 380614098520,
+      "amount_str": "3,806억",
+      "market": "KOSPI"
     },
     {
-      "ticker": "356680",
-      "name": "엑스게이트",
-      "close": 14990,
-      "change": -11.14,
-      "amount": 307096876680,
-      "amount_str": "3,070억",
-      "market": "KOSDAQ",
-      "industry": "소프트웨어 개발 및 공급업"
-    },
-    {
-      "ticker": "082740",
-      "name": "한화엔진",
-      "close": 56100,
-      "change": 16.39,
-      "amount": 287306058650,
-      "amount_str": "2,873억",
-      "market": "KOSPI",
-      "industry": "일반 목적용 기계 제조업"
-    },
-    {
-      "ticker": "009830",
-      "name": "한화솔루션",
-      "close": 44050,
-      "change": -0.56,
-      "amount": 213231261050,
-      "amount_str": "2,132억",
-      "market": "KOSPI",
-      "industry": "화학"
-    },
-    {
-      "ticker": "077970",
-      "name": "STX엔진",
-      "close": 44000,
-      "change": 29.99,
-      "amount": 151684536000,
-      "amount_str": "1,516억",
-      "market": "KOSPI",
-      "industry": "기계",
-      "score": 4549.01923464
-    },
-    {
-      "ticker": "009580",
-      "name": "무림P&P",
-      "close": 3630,
-      "change": -2.16,
-      "amount": 129109500713,
-      "amount_str": "1,291억",
-      "market": "KOSPI",
-      "industry": "기타"
-    },
-    {
-      "ticker": "034220",
-      "name": "LG디스플레이",
-      "close": 14410,
-      "change": 4.19,
-      "amount": 128560218225,
-      "amount_str": "1,285억",
-      "market": "KOSPI",
-      "industry": "전기,전자"
-    },
-    {
-      "ticker": "018880",
-      "name": "한온시스템",
-      "close": 4160,
-      "change": 1.84,
-      "amount": 109439409277,
-      "amount_str": "1,094억",
-      "market": "KOSPI",
-      "industry": "기계",
-      "score": 201.36851306968
-    },
-    {
-      "ticker": "321260",
-      "name": "프로이천",
-      "close": 3030,
-      "change": 7.26,
-      "amount": 105287916356,
-      "amount_str": "1,052억",
-      "market": "KOSDAQ",
-      "industry": "반도체 제조업"
-    },
-    {
-      "ticker": "011930",
-      "name": "신성이엔지",
-      "close": 4170,
-      "change": -2.91,
-      "amount": 103183742704,
-      "amount_str": "1,031억",
-      "market": "KOSPI",
-      "industry": "기계"
-    },
-    {
-      "ticker": "209640",
-      "name": "와이제이링크",
-      "close": 5920,
-      "change": 29.82,
-      "amount": 97578712469,
-      "amount_str": "975억",
-      "market": "KOSDAQ",
-      "industry": "특수 목적용 기계 제조업"
-    },
-    {
-      "ticker": "019170",
-      "name": "신풍제약",
-      "close": 14090,
-      "change": 26.48,
-      "amount": 78115617855,
-      "amount_str": "781억",
-      "market": "KOSPI",
-      "industry": "의약품"
-    },
-    {
-      "ticker": "005880",
-      "name": "대한해운",
-      "close": 2750,
-      "change": -4.01,
-      "amount": 70104155487,
-      "amount_str": "701억",
-      "market": "KOSPI",
-      "industry": "운수창고"
-    },
-    {
-      "ticker": "017550",
-      "name": "수산세보틱스",
-      "close": 3280,
-      "change": 8.43,
-      "amount": 61080462747,
-      "amount_str": "610억",
-      "market": "KOSPI",
-      "industry": "기계",
-      "score": 514.9083009572099
-    },
-    {
-      "ticker": "417010",
-      "name": "나노팀",
-      "close": 12030,
-      "change": 14.9,
-      "amount": 52278507615,
-      "amount_str": "522억",
-      "market": "KOSDAQ",
-      "industry": "일반 목적용 기계 제조업"
-    },
-    {
-      "ticker": "025860",
-      "name": "남해화학",
-      "close": 8840,
-      "change": 0.23,
-      "amount": 50571086615,
-      "amount_str": "505억",
-      "market": "KOSPI",
-      "industry": "화학"
-    },
-    {
-      "ticker": "054540",
-      "name": "삼영엠텍",
-      "close": 12850,
-      "change": 9.92,
-      "amount": 50075430485,
-      "amount_str": "500억",
-      "market": "KOSDAQ",
-      "industry": "금속",
-      "score": 496.7482704112
-    },
-    {
-      "ticker": "039240",
-      "name": "경남스틸",
-      "close": 3015,
-      "change": 3.97,
-      "amount": 39535321205,
-      "amount_str": "395억",
-      "market": "KOSDAQ",
-      "industry": "금속",
-      "score": 156.95522518385002
-    },
-    {
-      "ticker": "008350",
-      "name": "남선알미늄",
-      "close": 2460,
-      "change": -2.77,
-      "amount": 37090699341,
-      "amount_str": "370억",
-      "market": "KOSPI",
-      "industry": "철강및금속"
-    },
-    {
-      "ticker": "006340",
-      "name": "대원전선",
-      "close": 6190,
-      "change": -6.21,
-      "amount": 32561999840,
-      "amount_str": "325억",
-      "market": "KOSPI",
-      "industry": "기타"
+      "ticker": "450080",
+      "name": "에코프로머티",
+      "close": 77300,
+      "change": 4.88,
+      "amount": 268781228850,
+      "amount_str": "2,687억",
+      "market": "KOSPI"
     },
     {
       "ticker": "003280",
       "name": "흥아해운",
-      "close": 3070,
-      "change": -4.21,
-      "amount": 29295508349,
-      "amount_str": "292억",
-      "market": "KOSPI",
-      "industry": "운수창고"
+      "close": 3315,
+      "change": 7.98,
+      "amount": 211267256056,
+      "amount_str": "2,112억",
+      "market": "KOSPI"
     },
     {
-      "ticker": "015260",
-      "name": "에이엔피",
-      "close": 778,
-      "change": -6.15,
-      "amount": 24719027818,
-      "amount_str": "247억",
-      "market": "KOSPI",
-      "industry": "전기,전자"
+      "ticker": "017900",
+      "name": "광전자",
+      "close": 12530,
+      "change": -9.27,
+      "amount": 147466115545,
+      "amount_str": "1,474억",
+      "market": "KOSPI"
     },
     {
-      "ticker": "040300",
-      "name": "YTN",
-      "close": 3525,
-      "change": 2.32,
-      "amount": 20480628365,
-      "amount_str": "204억",
-      "market": "KOSDAQ",
-      "industry": "방송서비스"
+      "ticker": "003010",
+      "name": "혜인",
+      "close": 8030,
+      "change": 29.94,
+      "amount": 86915363915,
+      "amount_str": "869억",
+      "market": "KOSPI"
     },
     {
-      "ticker": "185490",
-      "name": "아이진",
-      "close": 1720,
-      "change": 23.21,
-      "amount": 16786188379,
-      "amount_str": "167억",
-      "market": "KOSDAQ",
-      "industry": "자연과학 및 공학 연구개발업"
+      "ticker": "038680",
+      "name": "에스넷",
+      "close": 5480,
+      "change": 4.78,
+      "amount": 75807541405,
+      "amount_str": "758억",
+      "market": "KOSDAQ"
     },
     {
-      "ticker": "142280",
-      "name": "녹십자엠에스",
-      "close": 4160,
-      "change": 9.47,
-      "amount": 15170225560,
-      "amount_str": "151억",
-      "market": "KOSDAQ",
-      "industry": "의료용품 및 기타 의약관련제품 제조업"
+      "ticker": "009580",
+      "name": "무림P&P",
+      "close": 3760,
+      "change": 3.58,
+      "amount": 73287761727,
+      "amount_str": "732억",
+      "market": "KOSPI"
     },
     {
-      "ticker": "009200",
-      "name": "무림페이퍼",
-      "close": 2240,
-      "change": -12.5,
-      "amount": 14990025536,
-      "amount_str": "149억",
-      "market": "KOSPI",
-      "industry": "종이,목재"
+      "ticker": "005880",
+      "name": "대한해운",
+      "close": 2705,
+      "change": -1.64,
+      "amount": 71695250157,
+      "amount_str": "716억",
+      "market": "KOSPI"
     },
     {
-      "ticker": "046310",
-      "name": "백금T&A",
-      "close": 3750,
-      "change": 18.3,
-      "amount": 14273145323,
-      "amount_str": "142억",
-      "market": "KOSDAQ",
-      "industry": "도매"
+      "ticker": "011930",
+      "name": "신성이엔지",
+      "close": 3930,
+      "change": -5.76,
+      "amount": 70720686819,
+      "amount_str": "707억",
+      "market": "KOSPI"
     },
     {
-      "ticker": "187790",
-      "name": "나노",
-      "close": 4315,
-      "change": 19.86,
-      "amount": 13837472728,
-      "amount_str": "138억",
-      "market": "KOSDAQ",
-      "industry": "기초화학물질 제조업"
+      "ticker": "382150",
+      "name": "온코크로스",
+      "close": 9420,
+      "change": 18.34,
+      "amount": 63818696050,
+      "amount_str": "638억",
+      "market": "KOSDAQ"
     },
     {
-      "ticker": "348950",
-      "name": "제이알글로벌리츠",
-      "close": 1132,
-      "change": -13.52,
-      "amount": 13822215019,
-      "amount_str": "138억",
-      "market": "KOSPI",
-      "industry": "부동산 임대 및 공급업"
+      "ticker": "003720",
+      "name": "삼영",
+      "close": 9590,
+      "change": 12.82,
+      "amount": 62683396305,
+      "amount_str": "626억",
+      "market": "KOSPI"
     },
     {
-      "ticker": "036220",
-      "name": "오상헬스케어",
-      "close": 10910,
-      "change": 25.98,
-      "amount": 13278354650,
-      "amount_str": "132억",
-      "market": "KOSDAQ",
-      "industry": "제약"
+      "ticker": "053260",
+      "name": "금강철강",
+      "close": 6690,
+      "change": 20.98,
+      "amount": 56725808025,
+      "amount_str": "567억",
+      "market": "KOSDAQ"
     },
     {
-      "ticker": "018470",
-      "name": "조일알미늄",
-      "close": 1711,
-      "change": -0.58,
-      "amount": 11400175434,
-      "amount_str": "114억",
-      "market": "KOSPI",
-      "industry": "철강및금속"
+      "ticker": "041020",
+      "name": "폴라리스오피스",
+      "close": 5160,
+      "change": 9.44,
+      "amount": 56146927303,
+      "amount_str": "561억",
+      "market": "KOSDAQ"
     },
     {
-      "ticker": "307870",
-      "name": "비투엔",
-      "close": 1389,
-      "change": 20.57,
-      "amount": 10178604788,
-      "amount_str": "101억",
-      "market": "KOSDAQ",
-      "industry": "기타"
+      "ticker": "034220",
+      "name": "LG디스플레이",
+      "close": 14430,
+      "change": 0.14,
+      "amount": 53341771820,
+      "amount_str": "533억",
+      "market": "KOSPI"
     },
     {
-      "ticker": "073010",
-      "name": "케이에스피",
-      "close": 4105,
-      "change": 10.2,
-      "amount": 9932814006,
-      "amount_str": "99억",
-      "market": "KOSDAQ",
-      "industry": "기계·장비"
+      "ticker": "006340",
+      "name": "대원전선",
+      "close": 6330,
+      "change": 2.26,
+      "amount": 45251160755,
+      "amount_str": "452억",
+      "market": "KOSPI"
     },
     {
-      "ticker": "092220",
-      "name": "KEC",
-      "close": 1300,
-      "change": -0.61,
-      "amount": 6806900639,
-      "amount_str": "68억",
-      "market": "KOSPI",
-      "industry": "전기,전자"
+      "ticker": "071090",
+      "name": "하이스틸",
+      "close": 4695,
+      "change": 6.46,
+      "amount": 36821487877,
+      "amount_str": "368억",
+      "market": "KOSPI"
     },
     {
       "ticker": "011000",
       "name": "진원생명과학",
-      "close": 1017,
-      "change": 29.89,
-      "amount": 6680031028,
-      "amount_str": "66억",
-      "market": "KOSPI",
-      "industry": "섬유,의복"
+      "close": 1322,
+      "change": 29.99,
+      "amount": 36639714048,
+      "amount_str": "366억",
+      "market": "KOSPI"
     },
     {
-      "ticker": "373110",
-      "name": "엑셀세라퓨틱스",
-      "close": 1649,
-      "change": 11.34,
-      "amount": 5059331108,
-      "amount_str": "50억",
-      "market": "KOSDAQ",
-      "industry": "기초 의약물질 및 생물학적 제제 제조업"
+      "ticker": "088130",
+      "name": "동아엘텍",
+      "close": 9230,
+      "change": 21.77,
+      "amount": 32508557550,
+      "amount_str": "325억",
+      "market": "KOSDAQ"
     },
     {
-      "ticker": "038070",
-      "name": "서린바이오",
-      "close": 6720,
-      "change": 2.75,
-      "amount": 3701171195,
-      "amount_str": "37억",
-      "market": "KOSDAQ",
-      "industry": "도매"
+      "ticker": "026940",
+      "name": "부국철강",
+      "close": 2845,
+      "change": 5.57,
+      "amount": 31957865370,
+      "amount_str": "319억",
+      "market": "KOSPI"
     },
     {
-      "ticker": "118000",
-      "name": "메타케어",
-      "close": 240,
-      "change": 6.19,
-      "amount": 3367222187,
-      "amount_str": "33억",
-      "market": "KOSPI",
-      "industry": "기계장비 및 관련 물품 도매업"
+      "ticker": "424760",
+      "name": "벨로크",
+      "close": 1791,
+      "change": 27.56,
+      "amount": 28435672955,
+      "amount_str": "284억",
+      "market": "KOSDAQ"
     },
     {
-      "ticker": "033310",
-      "name": "엠투엔",
-      "close": 1932,
-      "change": 5.17,
-      "amount": 3208829233,
-      "amount_str": "32억",
-      "market": "KOSDAQ",
-      "industry": "금속",
-      "score": 16.58964713461
+      "ticker": "112040",
+      "name": "위메이드",
+      "close": 24600,
+      "change": 13.1,
+      "amount": 25565086100,
+      "amount_str": "255억",
+      "market": "KOSDAQ"
     },
     {
-      "ticker": "005670",
-      "name": "푸드웰",
-      "close": 6550,
-      "change": 7.03,
-      "amount": 1915510745,
-      "amount_str": "19억",
-      "market": "KOSDAQ",
-      "industry": "음식료·담배"
+      "ticker": "039830",
+      "name": "오로라",
+      "close": 13160,
+      "change": 21.85,
+      "amount": 24933105440,
+      "amount_str": "249억",
+      "market": "KOSDAQ"
     },
     {
-      "ticker": "034940",
-      "name": "조아제약",
-      "close": 974,
-      "change": 7.74,
-      "amount": 1417089145,
-      "amount_str": "14억",
-      "market": "KOSDAQ",
-      "industry": "기타"
+      "ticker": "008350",
+      "name": "남선알미늄",
+      "close": 2395,
+      "change": -2.64,
+      "amount": 24363675932,
+      "amount_str": "243억",
+      "market": "KOSPI"
     },
     {
-      "ticker": "065950",
-      "name": "웰크론",
-      "close": 1723,
-      "change": 8.16,
-      "amount": 1284519597,
-      "amount_str": "12억",
-      "market": "KOSDAQ",
-      "industry": "섬유·의류"
+      "ticker": "018470",
+      "name": "조일알미늄",
+      "close": 1741,
+      "change": 1.75,
+      "amount": 22566673671,
+      "amount_str": "225억",
+      "market": "KOSPI"
+    },
+    {
+      "ticker": "028670",
+      "name": "팬오션",
+      "close": 5690,
+      "change": 4.02,
+      "amount": 21626070230,
+      "amount_str": "216억",
+      "market": "KOSPI"
+    },
+    {
+      "ticker": "103230",
+      "name": "에스앤더블류",
+      "close": 3920,
+      "change": -0.25,
+      "amount": 20216195694,
+      "amount_str": "202억",
+      "market": "KOSDAQ"
+    },
+    {
+      "ticker": "012030",
+      "name": "DB",
+      "close": 1954,
+      "change": 11.4,
+      "amount": 19055671576,
+      "amount_str": "190억",
+      "market": "KOSPI"
+    },
+    {
+      "ticker": "018880",
+      "name": "한온시스템",
+      "close": 4087,
+      "change": -1.75,
+      "amount": 18951432746,
+      "amount_str": "189억",
+      "market": "KOSPI"
+    },
+    {
+      "ticker": "014940",
+      "name": "오리엔탈정공",
+      "close": 7990,
+      "change": 10.36,
+      "amount": 17597327235,
+      "amount_str": "175억",
+      "market": "KOSDAQ"
+    },
+    {
+      "ticker": "054090",
+      "name": "삼진엘앤디",
+      "close": 1337,
+      "change": 19.59,
+      "amount": 13447544585,
+      "amount_str": "134억",
+      "market": "KOSDAQ"
+    },
+    {
+      "ticker": "044380",
+      "name": "주연테크",
+      "close": 545,
+      "change": 23.02,
+      "amount": 13286539532,
+      "amount_str": "132억",
+      "market": "KOSPI"
+    },
+    {
+      "ticker": "123420",
+      "name": "위메이드플레이",
+      "close": 8440,
+      "change": 8.76,
+      "amount": 12166291410,
+      "amount_str": "121억",
+      "market": "KOSDAQ"
+    },
+    {
+      "ticker": "309930",
+      "name": "조이웍스앤코",
+      "close": 1642,
+      "change": 9.18,
+      "amount": 11517660010,
+      "amount_str": "115억",
+      "market": "KOSDAQ"
+    },
+    {
+      "ticker": "092220",
+      "name": "KEC",
+      "close": 1249,
+      "change": -3.92,
+      "amount": 8569041844,
+      "amount_str": "85억",
+      "market": "KOSPI"
+    },
+    {
+      "ticker": "065420",
+      "name": "에스아이리소스",
+      "close": 299,
+      "change": 30.0,
+      "amount": 7206309175,
+      "amount_str": "72억",
+      "market": "KOSDAQ"
+    },
+    {
+      "ticker": "348950",
+      "name": "제이알글로벌리츠",
+      "close": 1225,
+      "change": 8.22,
+      "amount": 6589794376,
+      "amount_str": "65억",
+      "market": "KOSPI"
+    },
+    {
+      "ticker": "047820",
+      "name": "초록뱀미디어",
+      "close": 5480,
+      "change": 17.6,
+      "amount": 6542034893,
+      "amount_str": "65억",
+      "market": "KOSDAQ"
+    },
+    {
+      "ticker": "387570",
+      "name": "파인메딕스",
+      "close": 7530,
+      "change": 4.87,
+      "amount": 5318607100,
+      "amount_str": "53억",
+      "market": "KOSDAQ"
+    },
+    {
+      "ticker": "001210",
+      "name": "금호전기",
+      "close": 1013,
+      "change": 6.07,
+      "amount": 4485597064,
+      "amount_str": "44억",
+      "market": "KOSPI"
+    },
+    {
+      "ticker": "014160",
+      "name": "대영포장",
+      "close": 1267,
+      "change": 1.6,
+      "amount": 3894457728,
+      "amount_str": "38억",
+      "market": "KOSPI"
+    },
+    {
+      "ticker": "222040",
+      "name": "코스맥스엔비티",
+      "close": 5050,
+      "change": 13.23,
+      "amount": 2328561018,
+      "amount_str": "23억",
+      "market": "KOSDAQ"
+    },
+    {
+      "ticker": "177900",
+      "name": "쓰리에이로직스",
+      "close": 6780,
+      "change": 4.63,
+      "amount": 2167384025,
+      "amount_str": "21억",
+      "market": "KOSDAQ"
     },
     {
       "ticker": "004410",
       "name": "서울식품",
-      "close": 172,
-      "change": -1.71,
-      "amount": 1028048354,
-      "amount_str": "10억",
-      "market": "KOSPI",
-      "industry": "음식료품"
+      "close": 171,
+      "change": -0.58,
+      "amount": 548797844,
+      "amount_str": "5억",
+      "market": "KOSPI"
     },
     {
-      "ticker": "0097F0",
-      "name": "미래에셋비전스팩10호",
-      "close": 2010,
-      "change": 0.5,
-      "amount": 278298820,
-      "amount_str": "2억",
-      "market": "KOSDAQ",
-      "industry": "금융지원 서비스업",
-      "score": 0.13914941
+      "ticker": "003800",
+      "name": "에이스침대",
+      "close": 34050,
+      "change": -1.02,
+      "amount": 361566450,
+      "amount_str": "3억",
+      "market": "KOSDAQ"
     },
     {
-      "ticker": "462020",
-      "name": "에이치엠씨제6호스팩",
-      "close": 2095,
-      "change": 0.0,
-      "amount": 175607124,
-      "amount_str": "1억",
-      "market": "KOSDAQ",
-      "industry": "금융지원 서비스업"
+      "ticker": "405920",
+      "name": "나라셀라",
+      "close": 2640,
+      "change": -2.04,
+      "amount": 58587715,
+      "amount_str": "0억",
+      "market": "KOSDAQ"
     },
     {
-      "ticker": "0071M0",
-      "name": "삼성스팩11호",
-      "close": 2040,
+      "ticker": "489480",
+      "name": "키움제11호스팩",
+      "close": 2050,
       "change": 0.49,
-      "amount": 149499580,
-      "amount_str": "1억",
-      "market": "KOSDAQ",
-      "industry": "금융지원 서비스업",
-      "score": 0.0732547942
-    },
-    {
-      "ticker": "487360",
-      "name": "신한제14호스팩",
-      "close": 2045,
-      "change": 0.0,
-      "amount": 54715905,
+      "amount": 43973940,
       "amount_str": "0억",
-      "market": "KOSDAQ",
-      "industry": "기타"
+      "market": "KOSDAQ"
     },
     {
-      "ticker": "486630",
-      "name": "KB제30호스팩",
-      "close": 2095,
+      "ticker": "469880",
+      "name": "하나30호스팩",
+      "close": 2080,
       "change": 0.24,
-      "amount": 54707594,
+      "amount": 35072410,
       "amount_str": "0억",
-      "market": "KOSDAQ",
-      "industry": "금융지원 서비스업",
-      "score": 0.013129822559999999
+      "market": "KOSDAQ"
     },
     {
-      "ticker": "487830",
-      "name": "신한제15호스팩",
-      "close": 2060,
+      "ticker": "469480",
+      "name": "IBKS제24호스팩",
+      "close": 2170,
+      "change": 1.4,
+      "amount": 13861700,
+      "amount_str": "0억",
+      "market": "KOSDAQ"
+    },
+    {
+      "ticker": "498390",
+      "name": "한화플러스제5호스팩",
+      "close": 2035,
+      "change": 0.0,
+      "amount": 12824507,
+      "amount_str": "0억",
+      "market": "KOSDAQ"
+    },
+    {
+      "ticker": "488060",
+      "name": "유진스팩11호",
+      "close": 2045,
       "change": -0.24,
-      "amount": 42248610,
+      "amount": 10333390,
       "amount_str": "0억",
-      "market": "KOSDAQ",
-      "industry": "금융지원 서비스업"
+      "market": "KOSDAQ"
     },
     {
-      "ticker": "472230",
-      "name": "에스케이증권제11호스팩",
-      "close": 2055,
-      "change": 0.0,
-      "amount": 34213115,
+      "ticker": "493790",
+      "name": "유안타제17호스팩",
+      "close": 2015,
+      "change": 0.5,
+      "amount": 8180350,
       "amount_str": "0억",
-      "market": "KOSDAQ",
-      "industry": "금융지원 서비스업"
+      "market": "KOSDAQ"
     },
     {
-      "ticker": "482690",
-      "name": "대신밸런스제19호스팩",
-      "close": 2140,
-      "change": 0.0,
-      "amount": 14637215,
+      "ticker": "489210",
+      "name": "교보17호스팩",
+      "close": 2100,
+      "change": -0.47,
+      "amount": 3752760,
       "amount_str": "0억",
-      "market": "KOSDAQ",
-      "industry": "금융지원 서비스업"
+      "market": "KOSDAQ"
     },
     {
-      "ticker": "475250",
-      "name": "하나33호스팩",
-      "close": 2095,
-      "change": 0.0,
-      "amount": 2364570,
+      "ticker": "021045",
+      "name": "대호특수강우",
+      "close": 2635,
+      "change": -0.75,
+      "amount": 2782565,
       "amount_str": "0억",
-      "market": "KOSDAQ",
-      "industry": "금융지원 서비스업"
+      "market": "KOSDAQ"
     },
     {
-      "ticker": "487720",
-      "name": "키움제10호스팩",
-      "close": 2070,
-      "change": -0.48,
-      "amount": 511290,
+      "ticker": "473000",
+      "name": "에스케이증권제12호스팩",
+      "close": 2045,
+      "change": -0.24,
+      "amount": 920280,
       "amount_str": "0억",
-      "market": "KOSDAQ",
-      "industry": "금융지원 서비스업"
+      "market": "KOSDAQ"
     }
   ],
   "settings": {
