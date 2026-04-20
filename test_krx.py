@@ -20,10 +20,12 @@ headers = {
     "Content-Type": "application/json; charset=utf-8"
 }
 
+# 코스피 거래대금 순위
+print("\n=== 코스피 거래대금 TOP10 ===")
 params = {
     "fid_cond_mrkt_div_code": "J",
     "fid_cond_scr_div_code": "20171",
-    "fid_input_iscd": "0000",
+    "fid_input_iscd": "0001",
     "fid_div_cls_code": "0",
     "fid_blng_cls_code": "0",
     "fid_trgt_cls_code": "111111111",
@@ -33,15 +35,20 @@ params = {
     "fid_vol_cnt": "",
     "fid_input_date_1": ""
 }
-
 res = requests.get(
     f"{BASE_URL}/uapi/domestic-stock/v1/ranking/quote-balance",
     headers=headers, params=params, timeout=15
 )
-data = res.json().get("output", [])
-print(f"거래대금 TOP10:")
-for i, item in enumerate(data[:10]):
-    name = item.get("hts_kor_isnm","")
-    amount = item.get("acml_tr_pbmn","0")
-    chg = item.get("prdy_ctrt","0")
-    print(f"{i+1}. {name} {amount}원 {chg}%")
+for i, item in enumerate(res.json().get("output",[])[:10]):
+    print(f"{i+1}. {item.get('hts_kor_isnm','')} {int(item.get('acml_tr_pbmn','0').replace(',','')):,}원 {item.get('prdy_ctrt','')}%")
+
+# 코스닥 거래대금 순위
+print("\n=== 코스닥 거래대금 TOP10 ===")
+params["fid_input_iscd"] = "1001"
+params["fid_blng_cls_code"] = "1"
+res2 = requests.get(
+    f"{BASE_URL}/uapi/domestic-stock/v1/ranking/quote-balance",
+    headers=headers, params=params, timeout=15
+)
+for i, item in enumerate(res2.json().get("output",[])[:10]):
+    print(f"{i+1}. {item.get('hts_kor_isnm','')} {int(item.get('acml_tr_pbmn','0').replace(',','')):,}원 {item.get('prdy_ctrt','')}%")
