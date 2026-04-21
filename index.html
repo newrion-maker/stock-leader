@@ -1,445 +1,104 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>주도 테마 분석</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root {
-  --bg:      #0b0d11;
-  --surface: #13161e;
-  --card:    #191d28;
-  --card2:   #1e2333;
-  --border:  rgba(255,255,255,0.12);
-  --text:    #f0f2ff;
-  --muted:   #9aa0b4;
-  --up:      #ff6b6b;
-  --dn:      #60a5fa;
-  --gold:    #fbbf24;
-  --vol:     #34d399;
-  --purple:  #a78bfa;
-  --r: 10px;
-}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-serif;font-size:14px;line-height:1.6;}
-
-/* ── 헤더 ── */
-header{
-  background:var(--surface);
-  border-bottom:1px solid var(--border);
-  padding:1rem 1.5rem;
-  display:flex;align-items:center;justify-content:space-between;
-  position:sticky;top:0;z-index:20;
-}
-header h1{font-size:15px;font-weight:700;letter-spacing:-.3px;}
-.gen-time{font-size:11px;color:var(--muted);}
-.date-pill{
-  font-size:11px;padding:4px 12px;
-  background:rgba(16,185,129,.12);color:var(--vol);
-  border-radius:99px;border:1px solid rgba(16,185,129,.2);
-}
-
-/* ── 레이아웃 ── */
-main{max-width:1100px;margin:0 auto;padding:1.25rem 1rem 4rem;}
-
-/* ── 요약 카드들 ── */
-.summary-grid{
-  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:10px;margin-bottom:1.25rem;
-}
-.sum-card{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:var(--r);padding:.9rem 1.1rem;
-}
-.sum-label{font-size:11px;color:#b0b8cc;margin-bottom:5px;}
-.sum-val{font-size:19px;font-weight:700;font-family:'DM Mono',monospace;}
-.sum-sub{font-size:11px;color:var(--muted);margin-top:3px;}
-
-/* ── 거래대금 비중 바 ── */
-.amount-bar-wrap{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:var(--r);padding:1rem 1.25rem;margin-bottom:1.25rem;
-}
-.ab-label{display:flex;justify-content:space-between;font-size:12px;margin-bottom:8px;}
-.ab-track{
-  height:20px;background:rgba(255,255,255,.05);
-  border-radius:99px;overflow:hidden;display:flex;
-}
-.ab-theme{background:var(--up);height:100%;transition:width .8s ease;}
-.ab-other{background:var(--muted);height:100%;opacity:.4;}
-.ab-legend{display:flex;gap:16px;margin-top:8px;font-size:11px;color:var(--muted);}
-.ab-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:4px;vertical-align:middle;}
-
-/* ── 섹션 타이틀 ── */
-.sec-title{
-  font-size:11px;font-weight:700;letter-spacing:1.2px;
-  text-transform:uppercase;color:var(--muted);
-  margin-bottom:10px;margin-top:.25rem;
-}
-
-/* ── 테마 카드 ── */
-.theme-card{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:var(--r);margin-bottom:10px;overflow:hidden;
-}
-.theme-header{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:.85rem 1.1rem;cursor:pointer;
-  border-bottom:1px solid var(--border);
-  transition:background .15s;
-}
-.theme-header:hover{background:var(--card2);}
-.theme-rank{
-  font-size:13px;font-weight:700;color:var(--muted);
-  min-width:28px;font-family:'DM Mono',monospace;
-}
-.theme-rank.top3{color:var(--gold);}
-.theme-name{font-size:14px;font-weight:700;margin-left:8px;flex:1;}
-.theme-meta{display:flex;align-items:center;gap:12px;}
-.theme-amount{
-  font-size:13px;font-weight:500;
-  font-family:'DM Mono',monospace;color:var(--vol);
-}
-.theme-ratio{font-size:11px;color:var(--muted);}
-.theme-cnt{
-  font-size:11px;padding:2px 8px;border-radius:99px;
-  background:rgba(139,92,246,.15);color:var(--purple);
-  border:1px solid rgba(139,92,246,.2);
-}
-.chevron{font-size:12px;color:var(--muted);margin-left:8px;transition:transform .2s;}
-.chevron.open{transform:rotate(180deg);}
-
-/* ── 테마 내 종목 ── */
-.theme-body{display:none;padding:.75rem 1.1rem;}
-.theme-body.open{display:block;}
-
-/* 대장주 */
-.champion-row{
-  display:flex;align-items:center;justify-content:space-between;
-  background:rgba(245,158,11,.07);
-  border:1px solid rgba(245,158,11,.2);
-  border-radius:8px;padding:.65rem .9rem;
-  margin-bottom:6px;
-}
-.champion-badge{
-  font-size:10px;padding:2px 7px;border-radius:99px;
-  background:rgba(245,158,11,.2);color:var(--gold);
-  border:1px solid rgba(245,158,11,.3);
-  margin-right:6px;font-weight:700;
-}
-.stock-name{font-size:13px;font-weight:500;}
-.stock-ticker{font-size:11px;color:var(--muted);margin-left:4px;}
-.stock-right{display:flex;align-items:center;gap:12px;}
-.tag{
-  font-size:12px;font-weight:700;padding:2px 9px;
-  border-radius:99px;font-family:'DM Mono',monospace;
-}
-.tag-up{background:rgba(239,68,68,.12);color:var(--up);border:1px solid rgba(239,68,68,.2);}
-.tag-dn{background:rgba(59,130,246,.12);color:var(--dn);border:1px solid rgba(59,130,246,.2);}
-.tag-flat{background:rgba(90,96,112,.15);color:var(--muted);border:1px solid rgba(90,96,112,.2);}
-.stock-amount{font-size:12px;color:var(--muted);font-family:'DM Mono',monospace;min-width:70px;text-align:right;}
-
-/* 일반 종목 행 */
-.stock-row{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:.55rem .9rem;border-radius:6px;
-  transition:background .1s;
-}
-.stock-row:hover{background:var(--card2);}
-
-/* ── TOP60 테이블 ── */
-.top60-table{width:100%;border-collapse:collapse;}
-.top60-table th{
-  font-size:11px;color:var(--muted);font-weight:500;
-  padding:6px 8px;text-align:left;
-  border-bottom:1px solid var(--border);
-}
-.top60-table td{
-  font-size:12px;padding:7px 8px;
-  border-bottom:1px solid rgba(255,255,255,.03);
-}
-.top60-table tr:hover td{background:var(--card2);}
-.rank-no{color:var(--muted);font-family:'DM Mono',monospace;font-size:11px;}
-.theme-tag{
-  font-size:10px;padding:1px 6px;border-radius:99px;
-  background:rgba(139,92,246,.12);color:var(--purple);
-  border:1px solid rgba(139,92,246,.15);margin-left:4px;
-}
-
-/* ── 탭 ── */
-.tabs{display:flex;gap:4px;margin-bottom:1rem;}
-.tab{
-  font-size:12px;padding:6px 14px;border-radius:99px;
-  border:1px solid var(--border);color:var(--muted);
-  cursor:pointer;transition:all .15s;background:transparent;
-}
-.tab.active{background:var(--text);color:var(--bg);border-color:var(--text);}
-
-/* ── 로딩/에러 ── */
-#loading{
-  position:fixed;inset:0;background:var(--bg);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:100;
-}
-.spinner{
-  width:32px;height:32px;
-  border:2px solid rgba(255,255,255,.08);border-top-color:var(--vol);
-  border-radius:50%;animation:spin .7s linear infinite;margin-bottom:.75rem;
-}
-@keyframes spin{to{transform:rotate(360deg);}}
-
-footer{text-align:center;font-size:11px;color:var(--muted);padding:1.5rem 0;}
-@media(max-width:640px){
-  .summary-grid{grid-template-columns:1fr 1fr;}
-  .theme-meta .theme-ratio{display:none;}
-  .theme-header{flex-wrap:wrap;gap:6px;}
-  .theme-name{font-size:13px;}
-  .theme-amount{font-size:12px;}
-  .stock-name{font-size:12px;}
-  .tag{font-size:11px;padding:2px 7px;}
-  .stock-amount{font-size:11px;min-width:50px;}
-  .champion-row{flex-wrap:wrap;gap:6px;}
-  header h1{font-size:13px;}
-  main{padding:1rem 0.75rem 4rem;}
-  .sum-val{font-size:16px;}
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주도 업종 분석 대시보드 | KRX Market Insights</title>
+    <meta name="description" content="대한민국 주식시장 거래대금 상위 60개 종목을 분석하여 오늘의 주도 업종과 대장주를 한눈에 확인하세요.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="KRX 주도 업종 분석 대시보드">
+    <meta property="og:description" content="실시간 거래대금 기반 테마 및 대장주 분석 서비스">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="fade-in">
+            <div class="title">
+                <h1>KRX MARKET INSIGHTS</h1>
+                <p style="font-size: 0.8rem; color: var(--text-dim);">Leading Sector Analysis Dashboard</p>
+            </div>
+            <div class="date-info" id="header-date">
+                <div class="date">-</div>
+                <div class="time">-</div>
+            </div>
+        </header>
 
-<div id="loading">
-  <div class="spinner"></div>
-  <div style="color:#5a6070;font-size:13px;">데이터 불러오는 중...</div>
-</div>
+        <!-- Summary Section -->
+        <section class="summary-grid fade-in" style="animation-delay: 0.1s;">
+            <div class="summary-card">
+                <div class="label">시장 전체 거래대금 (TOP 60)</div>
+                <div class="value" id="total-amount">-</div>
+                <div class="sub-value" id="top60-count">60개 종목 분석</div>
+            </div>
+            <div class="summary-card ratio-card">
+                <div class="ratio-gauge">
+                    <svg viewBox="0 0 36 36" class="circular-chart primary">
+                        <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                        <path class="circle" id="ratio-circle" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                    </svg>
+                    <div class="percentage" id="theme-ratio">0%</div>
+                </div>
+                <div class="ratio-info">
+                    <div class="label">주도 테마 비중</div>
+                    <div class="sub-value" id="theme-amount">-</div>
+                </div>
+            </div>
+            <div class="summary-card">
+                <div class="label">활성화된 주도 테마</div>
+                <div class="value" id="theme-count">-</div>
+                <div class="sub-value">
+                    <span class="pulse-icon"></span>
+                    실시간 수집 분석 중
+                </div>
+            </div>
+        </section>
 
-<header>
-  <h1>📊 주도 테마 분석</h1>
-  <div style="display:flex;align-items:center;gap:10px;">
-    <span class="gen-time" id="gen-time"></span>
-    <span class="date-pill" id="date-pill">—</span>
-  </div>
-</header>
+        <!-- Main Content -->
+        <main>
+            <div class="tab-container fade-in" style="animation-delay: 0.2s;">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="themes">💡 주도 테마 분석</button>
+                    <button class="tab-btn" data-tab="top60">📊 TOP 60 리스트</button>
+                </div>
 
-<main id="app" style="display:none">
+                <!-- Themes View -->
+                <div id="themes-view" class="tab-content">
+                    <div class="theme-grid" id="theme-container">
+                        <!-- Theme Cards will be injected here -->
+                    </div>
+                </div>
 
-  <!-- 요약 카드 -->
-  <div class="summary-grid" id="summary-grid"></div>
+                <!-- TOP 60 View -->
+                <div id="top60-view" class="tab-content" style="display: none;">
+                    <div class="data-table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>순위</th>
+                                    <th>종목명</th>
+                                    <th>업종</th>
+                                    <th>현재가</th>
+                                    <th>등락률</th>
+                                    <th>거래대금</th>
+                                </tr>
+                            </thead>
+                            <tbody id="top60-body">
+                                <!-- Table rows will be injected here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
 
-  <!-- 거래대금 비중 바 -->
-  <div class="amount-bar-wrap">
-    <div class="ab-label">
-      <span style="font-size:13px;font-weight:500;">거래대금 TOP <span id="top-n">60</span> 구성</span>
-      <span style="font-family:'DM Mono',monospace;font-size:13px;" id="total-str">—</span>
+        <footer style="margin-top: 4rem; text-align: center; color: var(--text-dim); font-size: 0.85rem;">
+            <p>© 2026 KRX Market Insight Dashboard. Data updated daily after market close.</p>
+        </footer>
     </div>
-    <div class="ab-track">
-      <div class="ab-theme" id="bar-theme" style="width:0%"></div>
-      <div class="ab-other" id="bar-other" style="width:0%"></div>
-    </div>
-    <div class="ab-legend">
-      <span><span class="ab-dot" style="background:var(--up)"></span>주도 테마 <span id="leg-theme" style="color:var(--text)">—</span></span>
-      <span><span class="ab-dot" style="background:var(--muted)"></span>기타 <span id="leg-other" style="color:var(--text)">—</span></span>
-    </div>
-  </div>
 
-  <!-- 탭 -->
-  <div class="tabs">
-    <button class="tab active" onclick="showTab('themes',this)">🏆 주도 테마</button>
-    <button class="tab" onclick="showTab('top60',this)">📋 거래대금 TOP60</button>
-  </div>
-
-  <!-- 주도 테마 탭 -->
-  <div id="tab-themes">
-    <div class="sec-title">주도 테마 순위 (거래대금 합산 기준)</div>
-    <div id="theme-list"></div>
-  </div>
-
-  <!-- TOP60 탭 -->
-  <div id="tab-top60" style="display:none">
-    <div class="sec-title">거래대금 상위 60 종목</div>
-    <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:auto;">
-      <table class="top60-table">
-        <thead>
-          <tr>
-            <th>순위</th><th>종목명</th><th>등락률</th>
-            <th style="text-align:right">거래대금</th><th>테마</th>
-          </tr>
-        </thead>
-        <tbody id="top60-body"></tbody>
-      </table>
-    </div>
-  </div>
-
-</main>
-
-<footer>데이터: pykrx + 네이버금융 · collect.py 실행 후 갱신</footer>
-
-<script>
-let DATA = null;
-
-function showTab(name, btn) {
-  document.getElementById('tab-themes').style.display = name==='themes' ? 'block' : 'none';
-  document.getElementById('tab-top60').style.display  = name==='top60'  ? 'block' : 'none';
-  document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-}
-
-function chgClass(v){ return v>0?'tag-up':v<0?'tag-dn':'tag-flat'; }
-function chgText(v){ return (v>0?'+':'')+v.toFixed(2)+'%'; }
-
-function toggleTheme(id) {
-  const body = document.getElementById('body-'+id);
-  const chev = document.getElementById('chev-'+id);
-  body.classList.toggle('open');
-  chev.classList.toggle('open');
-}
-
-function renderThemes(themes) {
-  const el = document.getElementById('theme-list');
-  if (!themes.length) {
-    el.innerHTML = '<div style="text-align:center;color:var(--muted);padding:2rem;">주도 테마 없음</div>';
-    return;
-  }
-  const total = DATA.summary.total_amount;
-  el.innerHTML = themes.map((t,i) => {
-    const ratio = (t.total_amount / total * 100).toFixed(1);
-    const rankCls = i<3 ? 'top3' : '';
-    const ch = t.champion;
-    const chTag = `<span class="tag ${chgClass(ch.change)}">${chgText(ch.change)}</span>`;
-
-    const othersHtml = t.stocks.map(s => `
-      <div class="stock-row">
-        <div>
-          <span class="stock-name">${s.name}</span>
-          <span class="stock-ticker">${s.ticker}</span>
-        </div>
-        <div class="stock-right">
-          <span class="tag ${chgClass(s.change)}">${chgText(s.change)}</span>
-          <span class="stock-amount">${s.amount_str}</span>
-        </div>
-      </div>`).join('');
-
-    return `
-    <div class="theme-card">
-      <div class="theme-header" onclick="toggleTheme(${i})">
-        <span class="theme-rank ${rankCls}">${i+1}위</span>
-        <span class="theme-name">${t.theme}</span>
-        <div class="theme-meta">
-          <span class="theme-amount">${t.total_str}</span>
-          <span class="theme-ratio">${ratio}%</span>
-          <span class="theme-cnt">${t.count}종목</span>
-          <span class="chevron" id="chev-${i}">▼</span>
-        </div>
-      </div>
-      <div class="theme-body" id="body-${i}">
-        <div class="champion-row">
-          <div>
-            <span class="champion-badge">👑 대장주</span>
-            <span class="stock-name">${ch.name}</span>
-            <span class="stock-ticker">${ch.ticker}</span>
-          </div>
-          <div class="stock-right">
-            ${chTag}
-            <span class="stock-amount">${ch.amount_str}</span>
-          </div>
-        </div>
-        ${othersHtml}
-      </div>
-    </div>`;
-  }).join('');
-
-  // 1~3위 자동 펼치기
-  [0,1,2].forEach(i => {
-    const b = document.getElementById('body-'+i);
-    const c = document.getElementById('chev-'+i);
-    if(b){ b.classList.add('open'); c.classList.add('open'); }
-  });
-}
-
-function renderTop60(top60, themes) {
-  // 티커 → 테마명 맵 생성
-  const tickerTheme = {};
-  themes.forEach(t => {
-    if(t.champion) tickerTheme[t.champion.ticker] = t.theme;
-    t.stocks.forEach(s => { tickerTheme[s.ticker] = t.theme; });
-  });
-
-  const body = document.getElementById('top60-body');
-  body.innerHTML = top60.map((s,i) => {
-    const themeName = tickerTheme[s.ticker] || '';
-    const themeTag  = themeName ? `<span class="theme-tag">${themeName}</span>` : '';
-    return `
-    <tr>
-      <td class="rank-no">${i+1}</td>
-      <td><span style="font-size:13px;">${s.name}</span>${themeTag}</td>
-      <td><span class="tag ${chgClass(s.change)}" style="font-size:11px;">${chgText(s.change)}</span></td>
-      <td style="text-align:right;font-family:'DM Mono',monospace;font-size:12px;">${s.amount_str}</td>
-      <td style="font-size:11px;color:var(--muted);">${s.ticker}</td>
-    </tr>`;
-  }).join('');
-}
-
-async function load() {
-  try {
-    const res  = await fetch('data.json');
-    if(!res.ok) throw new Error('파일 없음');
-    DATA = await res.json();
-    const s = DATA.summary;
-
-    // 헤더
-    document.getElementById('date-pill').textContent = DATA.date;
-    document.getElementById('gen-time').textContent  = DATA.generated_at + ' 생성';
-    document.getElementById('top-n').textContent     = DATA.settings.top_n;
-
-    // 요약 카드
-    document.getElementById('summary-grid').innerHTML = `
-      <div class="sum-card">
-        <div class="sum-label">거래대금 TOP${DATA.settings.top_n} 합산</div>
-        <div class="sum-val" style="color:var(--text)">${s.total_str}</div>
-        <div class="sum-sub">${s.top60_count}개 종목</div>
-      </div>
-      <div class="sum-card">
-        <div class="sum-label">주도 테마 합산</div>
-        <div class="sum-val" style="color:var(--up)">${s.theme_str}</div>
-        <div class="sum-sub">전체의 ${s.theme_ratio}%</div>
-      </div>
-      <div class="sum-card">
-        <div class="sum-label">기타 종목 합산</div>
-        <div class="sum-val" style="color:var(--muted)">${s.non_theme_str}</div>
-        <div class="sum-sub">전체의 ${(100-s.theme_ratio).toFixed(1)}%</div>
-      </div>
-      <div class="sum-card">
-        <div class="sum-label">주도 테마 수</div>
-        <div class="sum-val" style="color:var(--purple)">${s.theme_count}</div>
-        <div class="sum-sub">3종목 이상 기준</div>
-      </div>`;
-
-    // 비중 바
-    document.getElementById('total-str').textContent = s.total_str;
-    document.getElementById('bar-theme').style.width = s.theme_ratio + '%';
-    document.getElementById('bar-other').style.width = (100-s.theme_ratio) + '%';
-    document.getElementById('leg-theme').textContent = `${s.theme_str} (${s.theme_ratio}%)`;
-    document.getElementById('leg-other').textContent = `${s.non_theme_str} (${(100-s.theme_ratio).toFixed(1)}%)`;
-
-    // 테마 + TOP60
-    renderThemes(DATA.themes);
-    renderTop60(DATA.top60, DATA.themes);
-
-    document.getElementById('loading').style.display = 'none';
-    document.getElementById('app').style.display     = 'block';
-
-  } catch(e) {
-    document.getElementById('loading').innerHTML = `
-      <div style="text-align:center;padding:2rem;">
-        <div style="font-size:40px;margin-bottom:1rem;">⚠️</div>
-        <div style="font-size:15px;color:var(--text);margin-bottom:8px;">data.json 파일이 없습니다</div>
-        <div style="font-size:13px;color:var(--muted);margin-bottom:1.5rem;">collect.py 를 먼저 실행해주세요</div>
-        <div style="font-size:12px;background:var(--card);padding:10px 24px;border-radius:8px;display:inline-block;font-family:'DM Mono',monospace;color:var(--vol);">
-          python collect.py
-        </div>
-      </div>`;
-  }
-}
-load();
-</script>
+    <script src="app.js"></script>
 </body>
 </html>
