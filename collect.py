@@ -4,7 +4,16 @@ from dotenv import load_dotenv
 from pykrx_openapi import KRXOpenAPI
 import requests
 
-load_dotenv()
+# .env 파일 경로 명시
+_env_paths = [
+    os.path.join(os.path.dirname(os.path.abspath(__file__)), '.env'),
+    os.path.join(os.getcwd(), '.env'),
+    'D:\\주도테마_분석기\\stock-leader\\.env',
+]
+for _p in _env_paths:
+    if os.path.exists(_p):
+        load_dotenv(dotenv_path=_p)
+        break
 
 KRX_API_KEY = os.getenv("KRX_API_KEY")
 APP_KEY     = os.getenv("APP_KEY")
