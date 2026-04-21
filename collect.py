@@ -72,7 +72,17 @@ def get_today():
     today = datetime.today()
     if today.weekday() == 5: today -= timedelta(days=1)
     elif today.weekday() == 6: today -= timedelta(days=2)
-    return today.strftime("%Y%m%d")
+    date_str = today.strftime("%Y%m%d")
+    # 당일 데이터 없으면 전일로
+    from pykrx_openapi import KRXOpenAPI
+    client = KRXOpenAPI(api_key=KRX_API_KEY)
+    for i in range(5):
+        check = (today - timedelta(days=i)).strftime("%Y%m%d")
+        data = client.get_stock_daily_trade(bas_dd=check)
+        if data.get("OutBlock_1"):
+            print(f"  데이터 기준일: {check}")
+            return check
+    return date_str
 
 def fmt_amount(val):
     ok = val / 100_000_000
